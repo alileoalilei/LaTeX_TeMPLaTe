@@ -1,0 +1,7 @@
+LaTeX template to write abstract for any conferences
+
+1) copy the template to the new directory then set the new abstract name.
+
+2) run 'make copy' to create the tex files with the new name. 
+
+3) Modify the abstract in the main tex file.
