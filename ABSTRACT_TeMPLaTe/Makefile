@@ -13,7 +13,7 @@ FLAGS    = -interaction=batchmode
 FLAGS    = 
 BIBC     = bibtex
 
-PROJNAME = aydogdu_EGU_2017_abstract
+PROJNAME = new_abstract_name
 NAME     = aa
 DATE     = _
 ARCD     = ARCHIVE
