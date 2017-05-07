@@ -1,157 +1,127 @@
-\RequirePackage{flashmovie,pdf14}
-\pdfminorversion=7
+\pdfimageresolution =2000
+\pdfminorversion    =7
+\RequirePackage     {flashmovie,pdf14}
 \documentclass[10pt]{beamer}
-%%%%%%%%%%%% LOAD LaTeX PACKAGES HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsmath,amssymb}
-\usepackage{textpos,textcomp,txfonts}
-\usepackage{colortbl}	 
-\usepackage{float,rotating,caption}
-\usepackage{tabularx,verbatim}
-\usepackage{tikz,graphicx}
-\usepackage{ulem,bbm}
-\usepackage[T1]{fontenc}
-\usepackage{avant}
-\usepackage[sort&compress,round,comma,colon,numbers,authoryear]{natbib}
-\usetikzlibrary{arrows,shapes,shadows,spy,calc,matrix}
-%%%%%%%%%%%% BEAMER SETTINGS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setbeamertemplate{navigation symbols}{}
-\setbeamercovered{transparent}
-\usetheme{Boadilla}
-\useoutertheme{default} %tree, smoothtree, smoothbars, miniframes, infolines, shadow,sidebar,split
-\useinnertheme{rectangles}
-\usefonttheme{structurebold}
-\setbeamerfont{frametitle}{family=\rmfamily,series=\bfseries,size={\fontsize{10}{11}}}
-\usecolortheme{structure} % orchid,lily,dolphin,beetle,crane
-\setbeamercolor{structure}{fg=black}
-\setbeamercolor*{palette primary}{use=structure,fg=blue!50!green,bg=white!5!black}
-\setbeamercolor*{palette secondary}{use=structure,fg=red!70!black,bg=white!5!black}
-\setbeamercolor*{palette tertiary}{use=structure,fg=blue!50!green,bg=white!5!black}
-\setbeamercolor{background canvas}{bg=}
+%----------- LOAD LaTeX PACKAGES HERE ---------------------------------------
+\usepackage         {amsmath,amssymb}
+\usepackage         {textpos,textcomp,txfonts}
+\usepackage         {colortbl}	 
+\usepackage         {float,rotating,caption}
+\usepackage         {tabularx,verbatim}
+\usepackage         {tikz,graphicx}
+\usepackage         {ulem,bbm}
+\usetikzlibrary     {arrows,shapes,shadows,spy,calc,matrix}
+\usepackage         [sort&compress,round,comma,colon,numbers,authoryear]{natbib}
+%----------- BEAMER TEMPLATE  -----------------------------------------------
+\usetheme           {Boadilla}
+\useoutertheme      {default}   % tree, smoothtree, smoothbars, miniframes, etc.
+\useinnertheme      {rectangles}
+\usefonttheme       {structurebold}
+\usecolortheme      {structure} % orchid,lily,dolphin,beetle,crane etc.
+\setbeamercolor     {structure}        {fg=black}
+\setbeamercolor*    {palette primary}  {use=structure,fg=blue!50!green}
+\setbeamercolor*    {palette secondary}{use=structure,fg=red!70!black}
+\setbeamercolor*    {palette tertiary} {use=structure,fg=blue!50!green}
+\setbeamercolor     {background canvas}{bg=black!10!white}
+\usebeamerfont*     {titlefont}
+\setbeamerfont      {frametitle}{size={\fontsize{11}{11}}}
+\setbeamercovered   {transparent}
 
-\setbeamerfont{frametitle}{size=\small,series=\bfseries}
-\setbeamertemplate{frametitle}{%
-\begin{beamercolorbox}[ht=1.2em,wd=\paperwidth]{frametitle}
-	\vbox{}\hskip0.2cm
-	\hfill\strut\insertframetitle\strut\hfill
-	\raisebox{-1.2mm}{A small logo here
-%		\includegraphics[height=0.4cm,keepaspectratio]{\PLTDIR/LOGO/logounivecmcc.png}
+\setbeamertemplate  {navigation symbols}{}
+\setbeamertemplate  {frametitle}{
+	\begin{beamercolorbox}[ht=1.2em,wd=\paperwidth]{frametitle}
+		\vbox{}\hskip0.2cm
+		\hfill\strut\insertframetitle\strut\hfill
+		\raisebox{-1.2mm}{
+		\includegraphics[height=0.4cm,keepaspectratio]{\logo}
 	}
-\end{beamercolorbox}
+	\end{beamercolorbox}
 }
-\setbeamertemplate{footline}{%
-  \leavevmode%
-  \hbox{\begin{beamercolorbox}[wd=.75\paperwidth,ht=1.75ex,dp=0.1ex,leftskip=.3cm,rightskip=.3cm]{author in head/foot}%
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.25\paperwidth,ht=1.75ex,dp=0.1ex,leftskip=2.0cm,rightskip=.3cm plus1fil]{author in head/foot}%
-    \usebeamerfont{author in head/foot} %\insertshortauthor
-  \end{beamercolorbox}}%
-  \vskip0pt%
+\setbeamertemplate  {footline}{
+	\leavevmode%
+	\hbox{
+	\begin{beamercolorbox}[wd=.75\paperwidth,ht=1.75ex,dp=0.1ex,leftskip=.3cm,rightskip=.3cm]
+				{author in head/foot}
+	%			\mytitle
+	\end{beamercolorbox}
+	\begin{beamercolorbox}[wd=.25\paperwidth,ht=1.75ex,dp=0.1ex,leftskip=2.0cm,rightskip=.3cm plus1fil]
+				{author in head/foot}
+				\usebeamerfont{author in head/foot} 
+	%			\presenter
+	\end{beamercolorbox}
+	}\vskip0pt
 }
-%%%%%%%%%%%% NEW COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\definecolor{darkred}{rgb}{0.8,0,0}
-\newcommand\mytitle{Enter the new title here}
-\newcommand\presenter{Enter the presenter here}
-\newcommand\pdate{Enter the date here}
-\newcommand\pplace{Enter the place here}
-\newcommand{\nscale}{.5}
-\renewcommand{\bibsection}{\subsubsection*{\bibname } }
-\newcommand\Fontvi{\fontsize{6}{7}\selectfont}
-\newcommand\RBox[1]{%
-	\tikz\node[draw, align=center, left color=white!30!gray,right color=black] {\color{white}\bf #1};}
-\beamersetuncovermixins{\opaqueness<1>{10}}{\opaqueness<2->{15}}
-\def\PLTDIR{Define the path of the figures}
-%%%%%%%%%%%%%%%%%% BEGIN DOCUMENT  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------- NEW DEFINITIONS AND COMMANDS -----------------------------------
+\def\mytitle       {Title of the presentation}
+\def\presenter     {Enter the presenter here}
+\def\pdate         {Date dd-mm-yyyy}
+\def\place         {Place}
+
+\def\PLTDIR        {Define the path of the figures}
+
+\def\logo          {/y1/aydogdu/AKADEMI/FIGS/LOGO/logounivecmcc.png}
+\def\bgfoto        {chlo.jpg}
+\def\autone        {1st author i.e. Ali Aydo\u{g}du$^{1,2}$}
+\def\auttwo        {2nd author}
+\def\affone        {1st affiliation i.e. Ca\textquotesingle\ Foscari University of Venice, Italy}
+\def\afftwo        {2st affiliation i.e. Fondazione CMCC, Bologna, Italy}
+
+\def\bibfile       {bibdir/Bibliography}
+
+%----------------- BEGIN DOCUMENT------------------------------
+\begin{document}
+%----------------- TITLE PAGE ---------------------------------
+\begin{tikzpicture}[overlay, node distance=0.7\paperwidth, remember picture, every node/.style={transform shape}]
+   \node(logo)[overlay,anchor=south] 
+                       at (current page.south)
+                                     {\includegraphics[width=1.01\paperwidth] {\bgfoto}};
+   \node(titl)[overlay,anchor=south, text width=12cm] 
+                       at (logo.north)
+                                     {\begin{center}\color{blue!40!green} \bf\Large{\mytitle}\end{center}};
+   \node(aut1)[overlay,anchor=north, text width=11cm] 
+                       at ([yshift=-0.1\paperheight]logo.north) 
+                                     {\begin{center}{\color{white!90!black}\bf \autone, \auttwo}\end{center}};
+   \node(aff1)[overlay,anchor=north west]             
+                       at ([xshift=-0.08\paperheight]aut1.south west)
+                                     {\color{white!90!black}\bf\scriptsize $^1$\affone};
+   \node(aff2)[overlay,anchor=north west]           
+                       at(aff1.south west)
+                                     {\color{black!9!white}\bf\scriptsize$^2$ \afftwo}; 
+   \node(date)[overlay,anchor=south] 
+                       at ([yshift=0.05\paperheight]current page.south)
+                                     {\color{white!90!black}\bf\Large \pdate / \place};
+\end{tikzpicture} 
+\date{}
+\vspace{5cm}
+
+%\begin{frame} \titlepage       \end{frame}
+%\begin{frame} \tableofcontents \end{frame}
+
+%----------- INPUT LATEX FILES ----------------------------------------------
+\input{SuNuM_TeMPLaTe_main.tex}
+
+%----------- BIBLIOGRAPHY ---------------------------------------------------
+\begin{frame}%[allowframebreaks] if longer than one page
+\frametitle{Cited Works}
+\scriptsize{\def\newblock{\hskip .11em plus .33em minus .07em}
+\bibliography{\bibfile}{
+	    \bibliographystyle{apalike}
+	}
+}
+\tikz{\node[draw, overlay, anchor=north west, rotate=45, scale=2] 
+                       at ([yshift=-0.3\paperheight]current page.south west) 
+                                    {\bf {\textit {THANKS FOR YOUR ATTENTION!}}};
+}
+\end{frame}
+%----------- SUPPLEMENTATY MATERIAL -----------------------------------------
+\end{document}
+
+%----------- End of DOCUMENT and PDF Information ----------------------------
 \pdfinfo{
-    /Author (\presenter)
+    /Author (\autone)
     /Title  (\mytitle)
     /CreationDate ()
     /Subject ()
     /Keywords ()
 }
-\begin{document}
-%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\mytitle}
-\author[\presenter]
-{%
-   \texorpdfstring{
-	\vspace{-0.8cm} 
-	\begin{columns}
-            \column{.37\linewidth} \centering
-	    \RBox{AUTHOR II}
-         \end{columns}
-	\vspace{0.2cm} 
-	\begin{columns}
-            \column{.37\linewidth} \centering
-	    \RBox{AUTHOR III}
-            \column{.01\linewidth} \centering
-            \column{.37\linewidth} \centering
-	    \RBox{AUTHOR IV}
-         \end{columns}
-	\vspace{0.2cm} 
-        \begin{columns}
-            \column{.37\linewidth} \centering
-	    \RBox{AUTHOR V}
-            \column{.25\linewidth} \centering
-            \column{.37\linewidth} \centering
-	    \RBox{AUTHOR VI}
-        \end{columns} 
-	\vspace{0.2cm} 
-	\begin{columns}
-            \column{.10\linewidth} \centering
-	    \RBox{AUTHOR VII}
-            \column{.01\linewidth} \centering
-            \column{.25\linewidth} \centering
-	    \RBox{AUTHOR VIII}
-         \end{columns}
-	\vspace{0.2cm} 
-	\begin{columns}
-            \column{.30\linewidth} \centering
-	    \RBox{\presenter}
-         \end{columns}
-	 }
-        \vspace{}
-	\begin{tikzpicture}[overlay, node distance=1.5cm, remember picture,thick, scale=.8, every node/.style={transform shape}]
-		\node(logo)[overlay,anchor=south,inner sep=0] at ([yshift=1.6cm]current page.south) {A LARGE LOGO HERE};
-%		\node(logo)[overlay,anchor=south,inner sep=0] at ([yshift=1.6cm]current page.south) {\includegraphics[width=10cm] {\PLTDIR/LOGO/logo_large.png}};
-		\node(date)[overlay,anchor=north] at ([yshift=-0.4cm]logo.south) {\bf\LARGE \pdate / \pplace};
-        \end{tikzpicture} 
-}
-\date{}
-\vspace{5cm}
-\begin{frame} \titlepage \end{frame}
-%%%%%%%%%%%% TABLE OF CONTENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{comment}
-\AtBeginSection[font=10pt] {
-{\setbeamercolor{background canvas}{bg=black!10}
-\begin{frame}[fancy]
-    \tableofcontents[currentsection]
-\end{frame}}
-\addtocounter{framenumber}{-1}
-}
-\AtBeginSubsection[font=6pt] {
-  \begin{frame}[fancy]
-   \frametitle{Outline of Presentation}
-   \alert{\tableofcontents[currentsubsection]}
-    \addtocounter{framenumber}{-1}
-  \end{frame}
-}
-\end{comment}
-%\begin{frame} \tableofcontents \end{frame}
-%%%%%%%%%%%% INPUT LATEX FILES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{SuNuM_main_TeMPLaTe.tex}
-%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[allowframebreaks]
-        \frametitle{Bibliography}
- \scriptsize{\def\newblock{\hskip .11em plus .33em minus .07em} % important line
-%  \nocite{*}
-\bibliography{Bibliography}{
-    \bibliographystyle{apalike}
-	}}
-	\tikz{\
-	\node[draw, overlay, scale=1.4, very thick, black,
-		preaction={fill, red}] at (current page.center) {\it{THANKS FOR YOUR ATTENTION!}};
-        }
-\end{frame}
-%%%%%%%%%%%% SUPPLEMENTATY MATERIAL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%% END OF DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{document}
