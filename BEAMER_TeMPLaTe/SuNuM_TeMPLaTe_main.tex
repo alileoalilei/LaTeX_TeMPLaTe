@@ -1,0 +1,6 @@
+\begin{frame}{Introductory frame}
+  \begin{tikzpicture}[remember picture, fill opacity=0.7, every node/.style={transform shape}]
+        \draw[overlay, red, fill=white, line width=0.001\paperwidth] ([yshift=0.05\paperheight]current page.west) rectangle ([yshift=-0.05\paperheight]current page.east);
+        \node(item1)[overlay, font=\huge] at (current page.center) {Section I};
+  \end{tikzpicture}
+\end{frame}
