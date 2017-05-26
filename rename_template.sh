@@ -8,8 +8,7 @@ ptemp=${pdate}_${pname}_${pauth}
 
 mv BEAMER_TeMPLaTe ${ptemp}; cd ${ptemp}
 #
-sed -e 's/SuNuM_TeMPLaTe/'${ptemp}'/' \
-         Makefile.template  > Makefile
+sed -e 's/SuNuM_TeMPLaTe/'${ptemp}'/' Makefile.template > Makefile
 
 sed 's/SuNuM_TeMPLaTe_main/'${ptemp}'_main/' \
          SuNuM_TeMPLaTe.tex > ${ptemp}.tex
