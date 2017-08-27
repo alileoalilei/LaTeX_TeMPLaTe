@@ -60,12 +60,12 @@
 
 \def\PLTDIR        {Define the path of the figures}
 
-\def\logo          {/y1/aydogdu/AKADEMI/FIGS/LOGO/logounivecmcc.png}
+\def\logo          {LOGO/NERSC-Logo.png}
 \def\bgfoto        {chlo.jpg}
 \def\autone        {1st author i.e. Ali Aydo\u{g}du$^{1,2}$}
 \def\auttwo        {2nd author}
-\def\affone        {1st affiliation i.e. Ca\textquotesingle\ Foscari University of Venice, Italy}
-\def\afftwo        {2st affiliation i.e. Fondazione CMCC, Bologna, Italy}
+\def\affone        {1st affiliation i.e. Nansen Environmental and Remote Sensing Center}
+\def\afftwo        {2st affiliation}
 
 \def\bibfile       {bibdir/Bibliography}
 
@@ -75,7 +75,7 @@
 \begin{tikzpicture}[overlay, node distance=0.7\paperwidth, remember picture, every node/.style={transform shape}]
    \node(logo)[overlay,anchor=south] 
                        at (current page.south)
-                                     {\includegraphics[width=1.01\paperwidth] {\bgfoto}};
+                                     {\includegraphics[width=0.3\textwidth] {\logo}};
    \node(titl)[overlay,anchor=south, text width=12cm] 
                        at (logo.north)
                                      {\begin{center}\color{blue!40!green} \bf\Large{\mytitle}\end{center}};
