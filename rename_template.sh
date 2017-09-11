@@ -24,11 +24,7 @@ ptemp=${pdate}_${pname}_${pauth}
 
 mv ABSTRACT_TeMPLaTe ${ptemp}; cd ${ptemp}
 #
-sed -e 's/ABSTRACT_TeMPLaTe/'${ptemp}'/' \
+sed -e 's/new_abstract_name/'${ptemp}'/' \
          Makefile.template  > Makefile
 
-sed 's/ABSTRACT_TeMPLaTe_main/'${ptemp}'_main/' \
-         ABSTRACT_TeMPLaTe.tex > ${ptemp}.tex
-
-cat ABSTRACT_TeMPLaTe_main.tex > ${ptemp}_main.tex
 fi
