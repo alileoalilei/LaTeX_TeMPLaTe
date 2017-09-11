@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-if [ $1 == "BEAMER" ] then
+if [ $1 == "BEAMER" ]; then
 pdate='a' # i.e. 201705
 pname='b' # i.e. Meeting_City
 pauth='c' # i.e. surname
@@ -16,7 +16,7 @@ sed 's/SuNuM_TeMPLaTe_main/'${ptemp}'_main/' \
 
 cat SuNuM_TeMPLaTe_main.tex > ${ptemp}_main.tex
 fi
-if [ $1 == "ABSTRACT" ] then
+if [ $1 == "ABSTRACT" ]; then
 pdate='a' # i.e. 201705
 pname='b' # i.e. Meeting_City
 pauth='c' # i.e. surname
