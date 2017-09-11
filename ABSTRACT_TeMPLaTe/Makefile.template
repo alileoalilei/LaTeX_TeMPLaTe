@@ -41,7 +41,7 @@ clean:
 
 copy: 
 	$(CP) ABSTRACT_TeMPLaTe.tex $(PROJNAME).tex
-	$(CP) ABSTRACT_main_TeMPLaTe.tex $(PROJNAME)_main.tex
+	$(CP) ABSTRACT_TeMPLaTe_main.tex $(PROJNAME)_main.tex
 	$(info TeMPLaTeS are copied. Now modify $(PROJNAME).tex)
 
 compress:
