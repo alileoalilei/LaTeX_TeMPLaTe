@@ -2,7 +2,7 @@
 PROG     = pdflatex
 OPTION   = -interaction=batchmode
 OPTION   = 
-PROJNAME = SuNuM_TeMPLaTe
+PROJNAME = amemr2017
 BIBC = bibtex
 RM       = rm -f
 CP       = cp -f

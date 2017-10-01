@@ -1,0 +1,7 @@
+
+git pull 
+git commit -a -m "Some comments here"
+git push origin master
+
+
+

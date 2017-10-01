@@ -1,0 +1,190 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% a0poster Portrait Poster
+% LaTeX Template
+% Version 1.0 (22/06/13)
+%
+% The a0poster class was created by:
+% Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a0,portrait]{a0poster}
+
+\usepackage{multicol} % This is so we can have multiple columns of text side-by-side
+\columnsep=50pt % This is the amount of white space between the columns in the poster
+\columnseprule=3pt % This is the thickness of the black line between the columns in the poster
+
+\usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
+
+\usepackage{times} % Use the times font
+%\usepackage{palatino} % Uncomment to use the Palatino font
+%\usepackage{helvet}
+
+\usepackage{graphicx} % Required for including images
+\graphicspath{{figures/}} % Location of the graphics files
+\usepackage{booktabs} % Top and bottom rules for table
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+\usepackage{wrapfig} % Allows wrapping text around tables and figures
+\usepackage{tcolorbox}
+\usepackage{caption}
+\definecolor{mblue}{rgb}{0,0.447,0.741}
+\definecolor{morange}{rgb}{0.85,0.325,0.098}
+
+\def \mytitle{Enter the poster title here}
+\def \authors{Enter the name of the authors here}
+\def \contact{Enter the contact information here}
+\def \institu{Enter the name of the institute here}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	POSTER HEADER 
+%----------------------------------------------------------------------------------------
+
+% The header is divided into two boxes:
+% The first is 75% wide and houses the title, subtitle, names, university/organization and contact information
+% The second is 25% wide and houses a logo for your university/organization or a photo of you
+% The widths of these boxes can be easily edited to accommodate your content as you see fit
+\begin{minipage}[b]{0.8\linewidth}
+\begin{center}
+\Huge \color{FireBrick} \textbf{\mytitle} \color{Black}\\ % Title
+\end{center}
+
+\begin{center}
+\LARGE \textbf{\authors}\\[0.25cm] % Author(s)
+\Large \institu \\[0.1cm] % University/organization
+\large \texttt{\contact}\\
+\end{center}
+\end{minipage}
+%
+\begin{minipage}[b]{0.2\linewidth}
+	% a logo here
+\end{minipage}
+
+\noindent\makebox[\linewidth]{\rule{\linewidth}{5.6pt}}
+%----------------------------------------------------------------------------------------
+
+\begin{multicols}{3} \setlength{\columnseprule}{0pt}
+% This is how many columns your poster will be broken into, a portrait poster is generally split into 2 columns
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+%\begin{abstract}
+
+%\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\color{DarkSlateGray} % SaddleBrown color for the introduction
+
+\section*{Motivation}
+Write the motivation here
+\linebreak
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+\begin{tcolorbox}
+\Large  \textbf{OBJECTIVES}
+\begin{itemize}
+\item  itemize the objectives here
+\end{itemize}
+\end{tcolorbox}
+%----------------------------------------------------------------------------------------
+%	MATERIALS AND METHODS
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
+\color{DarkSlateGray} 
+\section*{Another Section}
+
+\begin{itemize}\small
+ \item Model setup etc...
+\end{itemize}
+ 
+\section*{Another section}
+\begin{center}%\vspace{1cm}
+	% a figure here
+\end{center}%\vspace{1cm}
+
+\begin{itemize}\small
+\item 
+\end{itemize}
+
+\end{multicols}
+
+
+%----------------------------------------------------------------------------------------
+%	RESULTS 
+%----------------------------------------------------------------------------------------
+\noindent\makebox[\linewidth]{\rule{\linewidth}{5.6pt}}
+
+\begin{multicols}{3}\setlength{\columnseprule}{0pt}
+\section*{Another section here}
+\begin{center}
+	% a figure here
+\end{center}%\vspace{1cm}
+
+\begin{center}
+	% you can include figures here
+\end{center}
+
+
+\begin{tcolorbox}[colback=mblue!5!white]
+\Large \textbf{A title here}
+\begin{itemize}
+\item
+\end{itemize}
+\end{tcolorbox}
+
+\end{multicols}
+
+\begin{multicols}{3}\setlength{\columnseprule}{0pt}
+ \begin{tcolorbox}[colback=morange!5!white]
+ \Large  \textbf{A title here}
+ \begin{itemize}
+ \item 
+ \end{itemize}
+ \end{tcolorbox}
+
+ \begin{center}
+	 % a figure here
+ \end{center}
+ 
+ \begin{center}
+	 % a figure here
+ \end{center}
+
+
+\end{multicols}
+\begin{tcolorbox}[colback=morange!2!white,colframe=morange!100!white,title=\Huge Discussions \& Future work,boxsep=5mm]
+\begin{multicols}{3}\setlength{\columnseprule}{0pt}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+   \begin{tcolorbox}[colback=mblue!15!white]
+   \textbf{May be a future work}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+  \end{tcolorbox}
+  \textbf{Acknowledgements}
+  %\nocite{*} % Print all references regardless of whether they were cited in the poster or not
+  %\bibliographystyle{plain} % Plain referencing style
+  %\bibliography{sample} % Use the example bibliography file sample.bib
+\end{multicols}
+\end{tcolorbox}
+\end{document}
