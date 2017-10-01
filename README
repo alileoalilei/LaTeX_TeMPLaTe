@@ -1,7 +1,8 @@
-
-git pull 
-git commit -a -m "Some comments here"
-git push origin master
-
-
-
+- Three LaTeX templates are included in this repository.
+- Repo can be copied by using git clone https://github.com/alileoalilei/LaTeX_TeMPLaTe.git
+- Abstract template can be downloaded by 
+  svn checkout  https://github.com/alileoalilei/LaTeX_TeMPLaTe/trunk/ABSTRACT_TeMPLaTe
+- Presentation template can be downloaded by
+  svn checkout  https://github.com/alileoalilei/LaTeX_TeMPLaTe/trunk/BEAMER_TeMPLaTe
+- Poster template can be downloaded by
+  svn checkout  https://github.com/alileoalilei/LaTeX_TeMPLaTe/trunk/POSTER_TeMPLaTe
