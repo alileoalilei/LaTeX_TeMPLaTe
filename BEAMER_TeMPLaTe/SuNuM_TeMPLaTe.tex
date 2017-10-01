@@ -22,19 +22,21 @@
 \setbeamercolor*    {palette primary}  {use=structure,fg=blue!50!green}
 \setbeamercolor*    {palette secondary}{use=structure,fg=red!70!black}
 \setbeamercolor*    {palette tertiary} {use=structure,fg=blue!50!green}
-\setbeamercolor     {background canvas}{bg=black!10!white}
+\setbeamercolor     {background canvas}{}
 \usebeamerfont*     {titlefont}
 \setbeamerfont      {frametitle}{size={\fontsize{11}{11}}}
 \setbeamercovered   {transparent}
-
 \setbeamertemplate  {navigation symbols}{}
 \setbeamertemplate  {frametitle}{
+
+
 	\begin{beamercolorbox}[ht=1.2em,wd=\paperwidth]{frametitle}
 		\vbox{}\hskip0.2cm
 		\hfill\strut\insertframetitle\strut\hfill
-		\raisebox{-1.2mm}{
-		\includegraphics[height=0.4cm,keepaspectratio]{\logo}
-	}
+		\raisebox{-0.6mm}{
+			\includegraphics[height=0.5cm,keepaspectratio]{\logoi}
+			\includegraphics[height=0.5cm,keepaspectratio]{\logop}
+		}
 	\end{beamercolorbox}
 }
 \setbeamertemplate  {footline}{
@@ -55,17 +57,20 @@
 %----------- NEW DEFINITIONS AND COMMANDS -----------------------------------
 \def\mytitle       {Title of the presentation}
 \def\presenter     {Enter the presenter here}
-\def\pdate         {Date dd-mm-yyyy}
+\def\pdate         {dd-mm-yyyy}
 \def\place         {Place}
 
 \def\PLTDIR        {Define the path of the figures}
 
-\def\logo          {LOGO/NERSC-Logo.png}
+\def\logoi          {LOGO/NERSC_Logo.png}
+\def\logop          {LOGO/REDDA_Logo.png}
 \def\bgfoto        {chlo.jpg}
-\def\autone        {1st author i.e. Ali Aydo\u{g}du$^{1,2}$}
-\def\auttwo        {2nd author}
-\def\affone        {1st affiliation i.e. Nansen Environmental and Remote Sensing Center}
-\def\afftwo        {2st affiliation}
+\def\autone        {$^{1,2}$}
+\def\auttwo        {$^{3}$}
+\def\affone        {}
+\def\afftwo        {}
+\def\affthr        {}
+
 
 \def\bibfile       {bibdir/Bibliography}
 
@@ -73,24 +78,34 @@
 \begin{document}
 %----------------- TITLE PAGE ---------------------------------
 \begin{tikzpicture}[overlay, node distance=0.7\paperwidth, remember picture, every node/.style={transform shape}]
-   \node(logo)[overlay,anchor=south] 
-                       at (current page.south)
-                                     {\includegraphics[width=0.3\textwidth] {\logo}};
+   \node(logop)[overlay,anchor=north west] 
+                       at (current page.north west)
+                                     {\includegraphics[width=0.2\textwidth] {\logop}};
+   \node(logoi)[overlay,anchor=north east] 
+                       at (current page.north east)
+                                     {\includegraphics[width=0.2\textwidth] {\logoi}};
+
+   \coordinate (cc) at ([yshift=2cm]current page.center);
+
    \node(titl)[overlay,anchor=south, text width=12cm] 
-                       at (logo.north)
-                                     {\begin{center}\color{blue!40!green} \bf\Large{\mytitle}\end{center}};
+                       at (cc.north)
+                                     {\begin{center} \bf\Large{\mytitle}\end{center}};
    \node(aut1)[overlay,anchor=north, text width=11cm] 
-                       at ([yshift=-0.1\paperheight]logo.north) 
-                                     {\begin{center}{\color{white!90!black}\bf \autone, \auttwo}\end{center}};
+                       at ([yshift=-0.1\paperheight]cc.north) 
+                                     {\begin{center}{\bf \autone, \auttwo}\end{center}};
    \node(aff1)[overlay,anchor=north west]             
                        at ([xshift=-0.08\paperheight]aut1.south west)
-                                     {\color{white!90!black}\bf\scriptsize $^1$\affone};
+                                     {\bf\scriptsize $^1$\affone};
    \node(aff2)[overlay,anchor=north west]           
                        at(aff1.south west)
-                                     {\color{black!9!white}\bf\scriptsize$^2$ \afftwo}; 
+                                     {\bf\scriptsize$^2$ \afftwo}; 
+
+   \node(aff3)[overlay,anchor=north west]           
+                       at(aff2.south west)
+                                     {\bf\scriptsize$^3$ \affthr}; 
    \node(date)[overlay,anchor=south] 
                        at ([yshift=0.05\paperheight]current page.south)
-                                     {\color{white!90!black}\bf\Large \pdate / \place};
+                                     {\bf\Large \pdate / \place};
 \end{tikzpicture} 
 \date{}
 \vspace{5cm}
@@ -103,14 +118,14 @@
 
 %----------- BIBLIOGRAPHY ---------------------------------------------------
 \begin{frame}%[allowframebreaks] if longer than one page
-\frametitle{Cited Works}
+\frametitle{References}
 \scriptsize{\def\newblock{\hskip .11em plus .33em minus .07em}
 \bibliography{\bibfile}{
 	    \bibliographystyle{apalike}
 	}
 }
-\tikz{\node[draw, overlay, anchor=north west, rotate=45, scale=2] 
-                       at ([yshift=-0.3\paperheight]current page.south west) 
+\tikz{\node[draw, overlay, anchor=north west, rotate=45, scale=2, fill=red!70!black] 
+                       at ([yshift=-0.3\paperheight]current page.south) 
                                     {\bf {\textit {THANKS FOR YOUR ATTENTION!}}};
 }
 \end{frame}

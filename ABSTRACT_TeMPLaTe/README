@@ -1,3 +1,6 @@
+- Abstract template can be downloaded by
+  svn checkout  https://github.com/alileoalilei/LaTeX_TeMPLaTe/trunk/POSTER_TeMPLaTe
+
 LaTeX template to write abstract for any conferences
 
 1) copy the template to the new directory then set the new abstract name.
